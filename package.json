@@ -1,0 +1,14 @@
+{
+  "name": "linode-server",
+  "version": "1.0.0",
+  "description": "A simple node server for my linode",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Will Adams",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

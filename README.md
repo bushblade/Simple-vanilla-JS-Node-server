@@ -1,4 +1,4 @@
-## Simple vanilla NodeJS server
+## Simple vanilla JS Node server
 
 This server is so far a static replacement for my apache server, to run it node needs permission to run on port 80. Do not run as root instead use:-
 ```

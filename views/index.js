@@ -1,7 +1,7 @@
 const header = require('./partials/header.js'),
       footer = require('./partials/footer.js')
 
-const index = () => {
+const index = data => {
   return `${header()}
 <div class="container">
     <div class="columns">

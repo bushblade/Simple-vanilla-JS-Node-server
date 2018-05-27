@@ -1,11 +1,24 @@
 const express = require('express'),
   app = express(),
-  index = require('./views/index'),
+  routes = [{
+    route: '/',
+    page: './views/index',
+    data: null
+  }],
   port = 80
 
 app.use(express.static('public'))
 
-app.get('/', (req, res) => res.send(index()))
+const render = async (file, data) => {
+  const pageData = await file(data = null)
+  return pageData
+}
 
-//use sudo setcap cap_net_bind_service=+ep /bin/node 
+for (const r of routes) {
+  app.get(r.route, (req, res) => {
+    const page = require(r.page)
+    render(page, r.data).then(p => res.send(p))
+  })
+}
+
 app.listen(port, () => console.log(`server started on port ${port}`))

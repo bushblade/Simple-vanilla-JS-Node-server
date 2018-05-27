@@ -1,6 +1,66 @@
 const header = require('./partials/header.js'),
-      footer = require('./partials/footer.js')
-
+  footer = require('./partials/footer.js'),
+  state = {
+    socialLinks: [{
+        href: "https://github.com/bushblade",
+        icon: "fa-lg fab fa-github",
+        text: 'Github'
+      }, {
+        href: "https://www.facebook.com/bushblade",
+        icon: "fa-lg fab fa-facebook-square",
+        text: 'Facebook'
+      },
+      {
+        href: "https://plus.google.com/u/0/+WillAdamsbushblade",
+        icon: "fa-lg fab fa-google-plus-square",
+        text: 'Google+'
+      },
+      {
+        href: "mailto:bushblade@gmail.com",
+        icon: "fa fa-lg fa-envelope",
+        text: 'email'
+      }
+    ],
+    projects: [{
+        href: "flexBoxGallery/",
+        text: "Simple Flexbox Gallery"
+      },
+      {
+        href: "intervalTimer/",
+        text: 'Interval Timer'
+      },
+      {
+        href: "calculator/",
+        text: 'Calculator'
+      },
+      {
+        href: "taskList/",
+        text: 'Task List'
+      },
+      {
+        href: "randomPonyName/",
+        text: 'MLP Name Generator'
+      },
+      {
+        href: "secretSanta/",
+        text: 'Secret Santa Generator'
+      }
+    ],
+    websites: [{
+        href: "https://www.bushblade.co.uk/",
+        text: 'Bushblade Knives'
+      },
+      {
+        href: "http://www.louadamsphotography.com/",
+        text: 'Lou Adams Photography'
+      },
+      {
+        href: "http://www.westyorkshirebushcraft.co.uk/",
+        text: 'West Yorkshire Bushcraft'
+      }
+    ]
+  }
+  
 const index = data => {
   return `${header()}
 <div class="container">
@@ -14,30 +74,14 @@ const index = data => {
           </div>
           <div class="media-content">
             <ul>
-              <li>
-                <a href="https://github.com/bushblade">
+            ${state.socialLinks.reduce((str, link) => (str +=
+              `<li>
+                <a href="${link.href}">
                   <span class="icon">
-                    <i class="fa-lg fab fa-github" aria-hidden="true"></i>
-                  </span>Github</a>
-              </li>
-              <li>
-                <a href="https://www.facebook.com/bushblade">
-                  <span class="icon">
-                    <i class="fa-lg fab fa-facebook-square" aria-hidden="true"></i>
-                  </span>Facebook</a>
-              </li>
-              <li>
-                <a href="https://plus.google.com/u/0/+WillAdamsbushblade">
-                  <span class="icon">
-                    <i class="fa-lg fab fa-google-plus-square" aria-hidden="true"></i>
-                  </span>Google+</a>
-              </li>
-              <li>
-                <a href="mailto:bushblade@gmail.com">
-                  <span class="icon">
-                    <i class="fa fa-lg fa-envelope" aria-hidden="true"></i>
-                  </span>bushblade@gmail.com</a>
-              </li>
+                    <i class="${link.icon}"></i>
+                  </span>${link.text}</a>
+              </li>`
+              ),'')}
             </ul>
           </div>
         </article>
@@ -70,42 +114,14 @@ const index = data => {
             <h5 class="is-size-5 has-text-weight-semibold">Projects</h5>
             <hr>
             <ul>
-              <li>
-                <a href="flexBoxGallery/">
+            ${state.projects.reduce((str, project) => (str +=
+              `<li>
+                <a href="${ project.href }">
                   <span class="icon">
                     <i class="fas fa-lg fa-folder"></i>
-                  </span>Simple Flexbox Gallery</a>
-              </li>
-              <li>
-                <a href="intervalTimer/">
-                  <span class="icon">
-                    <i class="fas fa-lg fa-folder"></i>
-                  </span>Interval Timer</a>
-              </li>
-              <li>
-                <a href="calculator/">
-                  <span class="icon">
-                    <i class="fas fa-lg fa-folder"></i>
-                  </span>Calculator</a>
-              </li>
-              <li>
-                <a href="taskList/">
-                  <span class="icon">
-                    <i class="fas fa-lg fa-folder" aria-hidden="true"></i>
-                  </span>Task List</a>
-              </li>
-              <li>
-                <a href="randomPonyName/">
-                  <span class="icon">
-                    <i class="fas fa-lg fa-folder" aria-hidden="true"></i>
-                  </span>MLP Name Generator</a>
-              </li>
-              <li>
-                <a href="secretSanta/">
-                  <span class="icon">
-                    <i class="fas fa-lg fa-folder" aria-hidden="true"></i>
-                  </span>Secret Santa Generator</a>
-              </li>
+                  </span>${ project.text }</a>
+              </li>`
+            ), '')}
             </ul>
           </div>
           <!-- websites -->
@@ -113,24 +129,14 @@ const index = data => {
             <h5 class="is-size-5 has-text-weight-semibold">Websites</h5>
             <hr>
             <ul>
-              <li>
-                <a href="https://www.bushblade.co.uk/">
+            ${state.websites.reduce((str, site) => (str +=
+              `<li>
+                <a href="${ site.href }">
                   <span class="icon">
                     <i class="fa-lg fas fa-external-link-square-alt" aria-hidden="true"></i>
-                  </span>Bushblade Knives</a>
-              </li>
-              <li>
-                <a href="http://www.louadamsphotography.com/">
-                  <span class="icon">
-                    <i class="fa-lg fas fa-external-link-square-alt" aria-hidden="true"></i>
-                  </span>Lou Adams Photography</a>
-              </li>
-              <li>
-                <a href="http://www.westyorkshirebushcraft.co.uk/">
-                  <span class="icon">
-                    <i class="fa-lg fas fa-external-link-square-alt" aria-hidden="true"></i>
-                  </span>West Yorkshire Bushcraft</a>
-              </li>
+                  </span>${ site.text }</a>
+              </li>`
+            ), '')}
             </ul>
           </div>
 

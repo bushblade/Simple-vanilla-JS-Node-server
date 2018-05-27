@@ -1,3 +1,7 @@
+const state = {
+  icons: ["mfizz icon-html5", "mfizz icon-css3", "mfizz icon-javascript", "fab fa-linux fa-lg", "fab fa-linode fa-lg", "mfizz icon-apache", "mfizz icon-nodejs"]
+}
+
 const header = () => {
   return `<!DOCTYPE html>
   <html lang="en">
@@ -24,16 +28,9 @@ const header = () => {
             <div class="column is-two-thirds">
               <h1 class="title">Bushblade Projects</h1>
               <h2 class="subtitle">The web development learning journey of Will Adams</h2>
-              <i class="mfizz icon-html5"></i>
-              <i class="mfizz icon-css3"></i>
-              <i class="mfizz icon-javascript"></i>
-              <i class="fab fa-linux fa-lg"></i>
-              <i class="fab fa-linode fa-lg"></i>
-              <i class="mfizz icon-apache"></i>
-              <i class="mfizz icon-nodejs"></i>
+              ${state.icons.reduce((str, icon) => str.concat(`<i class="${icon}"></i> `),'')}
             </div>
             <div class="column is-one-third">
-  
             </div>
           </div>
         </div>

@@ -18,7 +18,7 @@ const header = require('./partials/header.js'),
       {
         href: "mailto:bushblade@gmail.com",
         icon: "fa fa-lg fa-envelope",
-        text: 'email'
+        text: 'Email'
       }
     ],
     projects: [{

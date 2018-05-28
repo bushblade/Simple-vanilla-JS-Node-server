@@ -1,5 +1,7 @@
 const express = require('express'),
   app = express(),
+  render = require('./render')
+  priv = require('./private'),
   routes = [{
     route: '/',
     page: './views/index',
@@ -8,11 +10,6 @@ const express = require('express'),
   port = 80
 
 app.use(express.static('public'))
-
-const render = async (file, data) => {
-  const pageData = await file(data = null)
-  return pageData
-}
 
 for (const r of routes) {
   app.get(r.route, (req, res) => {

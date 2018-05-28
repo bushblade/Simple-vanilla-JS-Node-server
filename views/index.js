@@ -1,69 +1,12 @@
 const header = require('./partials/header.js'),
   footer = require('./partials/footer.js'),
-  state = {
-    socialLinks: [{
-        href: "https://github.com/bushblade",
-        icon: "fa-lg fab fa-github",
-        text: 'Github'
-      }, {
-        href: "https://www.facebook.com/bushblade",
-        icon: "fa-lg fab fa-facebook-square",
-        text: 'Facebook'
-      },
-      {
-        href: "https://plus.google.com/u/0/+WillAdamsbushblade",
-        icon: "fa-lg fab fa-google-plus-square",
-        text: 'Google+'
-      },
-      {
-        href: "mailto:bushblade@gmail.com",
-        icon: "fa fa-lg fa-envelope",
-        text: 'Email'
-      }
-    ],
-    projects: [{
-        href: "flexBoxGallery/",
-        text: "Simple Flexbox Gallery"
-      },
-      {
-        href: "intervalTimer/",
-        text: 'Interval Timer'
-      },
-      {
-        href: "calculator/",
-        text: 'Calculator'
-      },
-      {
-        href: "taskList/",
-        text: 'Task List'
-      },
-      {
-        href: "randomPonyName/",
-        text: 'MLP Name Generator'
-      },
-      {
-        href: "secretSanta/",
-        text: 'Secret Santa Generator'
-      }
-    ],
-    websites: [{
-        href: "https://www.bushblade.co.uk/",
-        text: 'Bushblade Knives'
-      },
-      {
-        href: "http://www.louadamsphotography.com/",
-        text: 'Lou Adams Photography'
-      },
-      {
-        href: "http://www.westyorkshirebushcraft.co.uk/",
-        text: 'West Yorkshire Bushcraft'
-      }
-    ]
-  }
-  
-const index = data => {
-  return `${header()}
-<div class="container">
+  socialList = require('./partials/socialList'),
+  projectsList = require('./partials/projectsList'),
+  websitesList = require('./partials/websitesList')
+
+const index = (data = null) => (`
+${header()}
+  <div class="container">
     <div class="columns">
       <div class="column is-half">
         <article class="media">
@@ -73,16 +16,7 @@ const index = data => {
             </figure>
           </div>
           <div class="media-content">
-            <ul>
-            ${state.socialLinks.reduce((str, link) => (str +=
-              `<li>
-                <a href="${link.href}">
-                  <span class="icon">
-                    <i class="${link.icon}"></i>
-                  </span>${link.text}</a>
-              </li>`
-              ),'')}
-            </ul>
+            <ul>${socialList.render()}</ul>
           </div>
         </article>
       </div>
@@ -113,39 +47,19 @@ const index = data => {
           <div class="column is-one-half">
             <h5 class="is-size-5 has-text-weight-semibold">Projects</h5>
             <hr>
-            <ul>
-            ${state.projects.reduce((str, project) => (str +=
-              `<li>
-                <a href="${ project.href }">
-                  <span class="icon">
-                    <i class="fas fa-lg fa-folder"></i>
-                  </span>${ project.text }</a>
-              </li>`
-            ), '')}
-            </ul>
+            <ul>${projectsList.render()}</ul>
           </div>
           <!-- websites -->
           <div class="column is-one-half">
             <h5 class="is-size-5 has-text-weight-semibold">Websites</h5>
             <hr>
-            <ul>
-            ${state.websites.reduce((str, site) => (str +=
-              `<li>
-                <a href="${ site.href }">
-                  <span class="icon">
-                    <i class="fa-lg fas fa-external-link-square-alt" aria-hidden="true"></i>
-                  </span>${ site.text }</a>
-              </li>`
-            ), '')}
-            </ul>
+            <ul>${websitesList.render()}</ul>
           </div>
-
         </div>
       </div>
     </div>
   </div>
-
-${footer()}`
-}
+${footer()}
+`)
 
 module.exports = index

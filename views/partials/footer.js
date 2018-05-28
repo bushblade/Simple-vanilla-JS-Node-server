@@ -1,4 +1,4 @@
-const footer = () => (`
+const render = () => (`
 <br>
 <footer class="footer">
   <div class="container">
@@ -34,4 +34,4 @@ const footer = () => (`
 </html>
 `) 
 
-module.exports = footer
+module.exports = {render}

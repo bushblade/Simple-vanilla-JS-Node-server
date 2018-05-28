@@ -2,7 +2,7 @@ const state = {
   icons: ["mfizz icon-html5", "mfizz icon-css3", "mfizz icon-javascript", "fab fa-linux fa-lg", "fab fa-linode fa-lg", "mfizz icon-apache", "mfizz icon-nodejs"]
 }
 
-const header = () => (`
+const render = () => (`
 <!DOCTYPE html>
   <html lang="en">
   
@@ -38,4 +38,4 @@ const header = () => (`
     </section>
   `)
 
-module.exports = header
+module.exports = {render}

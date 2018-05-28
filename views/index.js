@@ -5,7 +5,7 @@ const header = require('./partials/header.js'),
   websitesList = require('./partials/websitesList')
 
 const index = (data = null) => (`
-${header()}
+${header.render()}
   <div class="container">
     <div class="columns">
       <div class="column is-half">
@@ -59,7 +59,7 @@ ${header()}
       </div>
     </div>
   </div>
-${footer()}
+${footer.render()}
 `)
 
 module.exports = index

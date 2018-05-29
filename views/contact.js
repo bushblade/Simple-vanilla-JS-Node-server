@@ -45,7 +45,7 @@ const render = () => (` ${header.render()}
     </div>
   </div>
 </div>
-${footer.render('/contactValidate.js')} 
+${footer.render(`<script src="/contactValidate.js"></script>`)} 
 `)
 
 module.exports = render

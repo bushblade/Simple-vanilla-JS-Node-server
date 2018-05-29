@@ -24,7 +24,11 @@ app.post('/contact', (req, res) => {
 })
 
 //invalid routes
-app.use((req, res) => res.status(404) ? render(notFound).then(page => res.send(page)) : false)
+app.use((req, res) => {
+  if (res.status(404)) {
+    render(notFound).then(page => res.send(page))
+  }
+})
 
 
 app.listen(port, () => console.log(`server started on port ${port}`))

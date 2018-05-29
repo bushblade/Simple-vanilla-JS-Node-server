@@ -10,14 +10,14 @@ const render = () => (` ${header.render()}
         <div class="field">
           <label class="label">Name</label>
           <div class="control">
-            <input id="name" class="input" type="text" placeholder="Text input">
+            <input id="name" class="input" type="text" placeholder="Text input" name="name">
           </div>
         </div>
 
         <div class="field">
           <label class="label">Email</label>
           <div class="control has-icons-left has-icons-right">
-            <input id="email" class="input" type="email" placeholder="Email input">
+            <input id="email" class="input" type="email" placeholder="Email input" name="email">
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -31,7 +31,7 @@ const render = () => (` ${header.render()}
         <div class="field">
           <label class="label">Message</label>
           <div class="control">
-            <textarea id="text" class="textarea" placeholder="Textarea"></textarea>
+            <textarea id="text" class="textarea" placeholder="Textarea" name="message"></textarea>
           </div>
         </div>
 

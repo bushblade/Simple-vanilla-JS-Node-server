@@ -4,7 +4,7 @@ const header = require('./partials/header.js'),
   projectsList = require('./partials/projectsList'),
   websitesList = require('./partials/websitesList')
 
-const index = (data = null) => (`
+const index = () => (`
 ${header.render()}
   <div class="container">
     <div class="columns">

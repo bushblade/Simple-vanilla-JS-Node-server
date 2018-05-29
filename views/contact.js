@@ -9,29 +9,47 @@ const render = () => (` ${header.render()}
 
         <div class="field">
           <label class="label">Name</label>
-          <div class="control">
-            <input id="name" class="input" type="text" placeholder="Text input" name="name">
+          <div class="control has-icons-left has-icons-right">
+            <input id="name" class="input" type="text" placeholder="" name="name">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span id="nameFail" class="icon is-small is-right is-hidden">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+            <span id="nameSuccess" class="icon is-small is-right is-hidden">
+              <i class="fas fa-check"></i>
+            </span>
           </div>
         </div>
 
         <div class="field">
           <label class="label">Email</label>
           <div class="control has-icons-left has-icons-right">
-            <input id="email" class="input" type="email" placeholder="Email input" name="email">
+            <input id="email" class="input" type="email" placeholder="" name="email">
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
-            <!-- <span class="icon is-small is-right">
+            <span id="emailFail" class="icon is-small is-right is-hidden">
               <i class="fas fa-exclamation-triangle"></i>
-            </span> -->
+            </span>
+            <span id="emailSuccess" class="icon is-small is-right is-hidden">
+              <i class="fas fa-check"></i>
+            </span>
           </div>
           <p id="emailMessage"></p>
         </div>
 
         <div class="field">
           <label class="label">Message</label>
-          <div class="control">
-            <textarea id="text" class="textarea" placeholder="Textarea" name="message"></textarea>
+          <div class="control has-icons-left has-icons-right">
+            <textarea id="text" class="textarea" placeholder="Enter message" name="message" maxlength="400"></textarea>
+            <span id="textFail" class="icon is-small is-right is-hidden">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+            <span id="textSuccess" class="icon is-small is-right is-hidden">
+              <i class="fas fa-check"></i>
+            </span>
           </div>
         </div>
 

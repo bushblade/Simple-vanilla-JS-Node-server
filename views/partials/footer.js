@@ -1,4 +1,4 @@
-const render = () => (`
+const render = (script = null) => (`
 <br>
 <footer class="footer">
   <div class="container">
@@ -29,6 +29,7 @@ const render = () => (`
   </div>
 </footer>
 
+<script src="${script}"></script>
 </body>
 
 </html>

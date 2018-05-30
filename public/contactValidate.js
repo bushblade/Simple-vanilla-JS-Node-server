@@ -21,11 +21,12 @@ name.addEventListener('keyup', validateName)
 text.addEventListener('keyup', validateText)
 
 form.addEventListener('submit', e => {
-  if (Object.values(valid).every(x => !x)) {
+  if (!Object.values(valid).every(x => x)) {
     e.preventDefault()
     validateEmail()
     validateName()
     validateText()
+    return
   }
 })
 
@@ -50,7 +51,7 @@ function validateEmail() {
 }
 
 function validateName() {
-  if (name.value.length > 1) {
+  if (/\S/.test(name.value)) {
     valid.name = true
     name.classList.remove('is-danger')
     name.classList.add('is-success')
@@ -66,7 +67,7 @@ function validateName() {
 }
 
 function validateText() {
-  if (text.value.length > 1) {
+  if (/\S/.test(text.value)) {
     valid.message = true
     text.classList.remove('is-danger')
     text.classList.add('is-success')

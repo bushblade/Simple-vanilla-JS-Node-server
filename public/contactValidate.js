@@ -1,20 +1,27 @@
-const form = document.querySelector('form'),
-  name = document.getElementById('name'),
-  email = document.getElementById('email'),
-  emailMessage = document.getElementById('emailMessage'),
-  emailSuccess = document.getElementById('emailSuccess'),
-  emailFail = document.getElementById('emailFail'),
-  text = document.getElementById('text'),
-  submit = document.getElementById('submit')
+const dqs = element => document.querySelector(element)
 
-let valid = false
+const form = dqs('form'),
+  name = dqs('#name'),
+  email = dqs('#email'),
+  emailMessage = dqs('#emailMessage'),
+  emailSuccess = dqs('#emailSuccess'),
+  emailFail = dqs('#emailFail'),
+  text = dqs('#text'),
+  textSuccess = dqs('#textSuccess'),
+  textFail = dqs('#textFail')
+
+let valid = {
+  name: false,
+  email: false,
+  message: false
+}
 
 email.addEventListener('keyup', validateEmail)
 name.addEventListener('keyup', validateName)
 text.addEventListener('keyup', validateText)
 
 form.addEventListener('submit', e => {
-  if (!valid) {
+  if (Object.values(valid).every(x => !x)) {
     e.preventDefault()
     validateEmail()
     validateName()
@@ -25,7 +32,7 @@ form.addEventListener('submit', e => {
 function validateEmail() {
   const re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/
   if (!re.test(email.value)) {
-    valid = false
+    valid.email = false
     email.classList.remove('is-success')
     email.classList.add('is-danger')
     emailMessage.classList.add('help', 'is-danger')
@@ -33,7 +40,7 @@ function validateEmail() {
     emailSuccess.classList.add('is-hidden')
     emailFail.classList.remove('is-hidden')
   } else {
-    valid = true
+    valid.email = true
     email.classList.remove('is-danger')
     email.classList.add('is-success')
     emailMessage.textContent = ''
@@ -42,16 +49,15 @@ function validateEmail() {
   }
 }
 
-function validateName () {
+function validateName() {
   if (name.value.length > 1) {
-    valid = true
+    valid.name = true
     name.classList.remove('is-danger')
     name.classList.add('is-success')
     nameSuccess.classList.remove('is-hidden')
     nameFail.classList.add('is-hidden')
-  }
-  else {
-    valid = false
+  } else {
+    valid.name = false
     name.classList.remove('is-success')
     name.classList.add('is-danger')
     nameSuccess.classList.add('is-hidden')
@@ -59,16 +65,15 @@ function validateName () {
   }
 }
 
-function validateText () {
+function validateText() {
   if (text.value.length > 1) {
-    valid = true
+    valid.message = true
     text.classList.remove('is-danger')
     text.classList.add('is-success')
     textSuccess.classList.remove('is-hidden')
     textFail.classList.add('is-hidden')
-  }
-  else {
-    valid = false
+  } else {
+    valid.message = false
     text.classList.remove('is-success')
     text.classList.add('is-danger')
     textSuccess.classList.add('is-hidden')

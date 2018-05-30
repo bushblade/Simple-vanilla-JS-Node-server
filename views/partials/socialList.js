@@ -14,8 +14,13 @@ const state = [{
   },
   {
     href: "mailto:bushblade@gmail.com",
-    icon: "fa fa-lg fa-envelope",
+    icon: "fas fa-lg fa-envelope",
     text: 'Email'
+  },
+  {
+    href: "/contact",
+    icon: "fas fal-lg fa-paper-plane",
+    text: 'Contact'
   }
 ]
 

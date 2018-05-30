@@ -1,5 +1,5 @@
-const render = async (file, data) => {
-  const pageData = await file(data = null).replace(/\s{2,}|\n/g, '')
+const render = async (file, data = null) => {
+  const pageData = await file(data).replace(/\s{2,}|\n/g, '')
   return pageData
 }
 

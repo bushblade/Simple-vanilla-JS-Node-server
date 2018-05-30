@@ -26,6 +26,11 @@ const render = (script = '') => (`
         <img src="img/made-with-bulma--semiblack.png" alt="" class="bulma">
       </div>
     </div>
+    <div class="columns">
+      <div class="column">
+        <a href="/">Home</a> | <a href="/contact">Contact</a>
+      </div>
+    </div>
   </div>
 </footer>
 ${script}

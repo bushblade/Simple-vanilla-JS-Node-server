@@ -17,11 +17,12 @@ app.use(bodyParser.urlencoded({
 app.get('/', (req, res) => render(index).then(page => res.send(page)))
 
 app.get('/contact', (req, res) => render(contact).then(page => res.send(page)))
+app.get('/contact/success', (req, res) => render(contact, true).then(page => res.send(page)))
 
 app.post('/contact', (req, res) => {
   console.log(req.body)
   mail(req.body)
-  setTimeout(() => res.redirect('/'), 2000)
+  res.redirect('/contact/success')
 })
 
 //invalid routes

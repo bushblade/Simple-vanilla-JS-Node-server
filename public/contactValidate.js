@@ -10,7 +10,7 @@ const form = dqs('form'),
   textSuccess = dqs('#textSuccess'),
   textFail = dqs('#textFail')
 
-let valid = {
+const valid = {
   name: false,
   email: false,
   message: false

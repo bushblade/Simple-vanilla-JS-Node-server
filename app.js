@@ -2,7 +2,7 @@ const express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
   render = require('./render'),
-  priv = require('./private'),
+  mail = require('./mail'),
   index = require('./views/index'),
   contact = require('./views/contact'),
   notFound = require('./views/notFound'),
@@ -20,6 +20,7 @@ app.get('/contact', (req, res) => render(contact).then(page => res.send(page)))
 
 app.post('/contact', (req, res) => {
   console.log(req.body)
+  mail(req.body)
   setTimeout(() => res.redirect('/'), 2000)
 })
 
